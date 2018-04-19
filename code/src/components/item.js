@@ -3,7 +3,7 @@ import React from "react"
 class Item extends React.Component {
 
   handleCheckboxChange = () => {
-    this.props.function(this.props.done)
+    this.props.function(this.props.index)
   }
 
   render() {

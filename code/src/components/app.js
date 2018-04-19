@@ -23,18 +23,25 @@ class App extends React.Component {
     })
   }
 
-   handleChecking = () => {
-     this.setState({
-       done: !this.state.done
-     })
+   handleChecking = (index) => {
+     const toDos = this.state.items
+     const toDoItemUpdate = toDos[index]
+     toDoItemUpdate.done = !toDoItemUpdate.done
+     toDos[index] = toDoItemUpdate
+     this.setState({ items: toDos })
+     console.log(this.state)
+     // this.setState({
+     //   done: !this.state.done
+     // })
    }
 
    render() {
      return (
 
        <div>
-         {this.state.items.map(listItem => (
+         {this.state.items.map((listItem, index) => (
            <Item
+             index={index}
              key={listItem.id}
              text={listItem.text}
              done={listItem.done}
