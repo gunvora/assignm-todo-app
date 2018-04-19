@@ -6,17 +6,24 @@ class App extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      items: [
-        { id: 1, done: false, text: "wash" },
-        { id: 2, done: false, text: "clean" }
+    const toDoList = JSON.parse(localStorage.getItem("saveItems"))
+    if (toDoList) {
+      this.state = { items: toDoList }
+    } else {
+      this.state = {
+        items: [
+          { id: 1, done: false, text: "wash" },
+          { id: 2, done: false, text: "clean" }
       ]
     }
   }
+}
+
 
   handleNewListItem = (text) => {
     const toDos = this.state.items
     toDos.push({ id: Date.now(), done: false, text: text })
+    localStorage.setItem("saveItems", JSON.stringify(toDos))
     this.setState({
       items: toDos
 
