@@ -1,4 +1,5 @@
 import React from "react"
+import "./form.css"
 
 class Form extends React.Component {
 
@@ -30,22 +31,25 @@ class Form extends React.Component {
 
   render() {
     return (
-      <div>
+
+      <div className="form-container">
 
         <form onSubmit={this.handleOnSubmit}>
-          <label>
-            <input type="text"
-
+          <label className="form-input">
+            <input
+              type="text"
+              placeholder="New todo.."
               name="toDo"
               value={this.state.newToDo}
               onChange={this.handleOnChange} />
           </label>
 
-          <button>Add to do</button>
+          <button>Add</button>
 
         </form>
 
       </div>
+
     )
   }
 }

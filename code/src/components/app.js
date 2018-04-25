@@ -1,6 +1,7 @@
 import React from "react"
 import Form from "./form"
 import Item from "./item"
+import "./app.css"
 
 class App extends React.Component {
 
@@ -14,11 +15,10 @@ class App extends React.Component {
         items: [
           { id: 1, done: false, text: "wash" },
           { id: 2, done: false, text: "clean" }
-      ]
+        ]
+      }
     }
   }
-}
-
 
   handleNewListItem = (text) => {
     const toDos = this.state.items
@@ -45,17 +45,20 @@ class App extends React.Component {
    render() {
      return (
 
-       <div>
-         {this.state.items.map((listItem, index) => (
-           <Item
-             index={index}
-             key={listItem.id}
-             text={listItem.text}
-             done={listItem.done}
-             function={this.handleChecking} />
-         ))}
+       <div className="app-container">
 
-         <Form addToList={this.handleNewListItem} />
+         <div className="app-list">
+           <Form addToList={this.handleNewListItem} />
+
+           {this.state.items.map((listItem, index) => (
+             <Item
+               index={index}
+               key={listItem.id}
+               text={listItem.text}
+               done={listItem.done}
+               function={this.handleChecking} />
+           ))}
+         </div>
        </div>
 
      )
