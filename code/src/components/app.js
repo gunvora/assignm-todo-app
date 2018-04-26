@@ -24,6 +24,7 @@ class App extends React.Component {
     const toDos = this.state.items
     toDos.push({ id: Date.now(), done: false, text: text })
     localStorage.setItem("saveItems", JSON.stringify(toDos))
+    // to restart:  localStorage.removeItem("saveItems", JSON.stringify(toDos));
     this.setState({
       items: toDos
 
