@@ -27,7 +27,6 @@ class App extends React.Component {
     // to restart:  localStorage.removeItem("saveItems", JSON.stringify(toDos));
     this.setState({
       items: toDos
-
     })
   }
 
@@ -38,9 +37,6 @@ class App extends React.Component {
      toDos[index] = toDoItemUpdate
      this.setState({ items: toDos })
      console.log(this.state)
-     // this.setState({
-     //   done: !this.state.done
-     // })
    }
 
    render() {
